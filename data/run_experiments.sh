@@ -22,3 +22,5 @@ echo Opening PDF output | tee -a $log
 if [ ! -s $DISPLAY ]; then evince paper_notext.pdf
 else echo 'PDF generated at /home/sbl/gawcurcra15/Examples/paper_notext.pdf'
 fi;
+
+echo Completed analysis | tee -a $log
