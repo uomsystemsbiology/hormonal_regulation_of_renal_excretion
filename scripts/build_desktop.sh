@@ -15,10 +15,10 @@ sudo convert -font Arial-Regular -fill white -pointsize 22 -annotate +25+300 '@/
 sudo convert -font Arial-Bold -fill white -style Italic -weight Bold -pointsize 16 -annotate +25+650 '@/vagrant/temp/build_info.txt' /vagrant/temp/temp_wallpaper.png /vagrant/temp/temp_wallpaper.png 2>&1 | tee -a $log
 
 echo Copying wallpaper across | tee -a $log
-sudo cp /vagrant/temp/temp_wallpaper.png /usr/share/lubuntu/wallpapers/sbl_reference_environment_gawcurcra15_wallpaper_1024x768.png
+sudo cp /vagrant/temp/temp_wallpaper.png /usr/share/lubuntu/wallpapers/sbl_reference_environment_budden2015treeome_wallpaper_1024x768.png
 
 echo Setting wallpaper | tee -a $log
-WALLPAPERPATH=/usr/share/lubuntu/wallpapers/sbl_reference_environment_gawcurcra15_wallpaper_1024x768.png
+WALLPAPERPATH=/usr/share/lubuntu/wallpapers/sbl_reference_environment_budden2015treeome_wallpaper_1024x768.png
 sudo sed -i "s#\(wallpaper *= *\).*#\1$WALLPAPERPATH#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 sudo sed -i "s#\(wallpaper_mode *= *\).*#\1center#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 

@@ -1,26 +1,22 @@
 #!/bin/sh
 
-# Set up logfile
-log=/vagrant/temp/install_gawcurcra15.log
-
 # Change to project directory
-cd /home/sbl/gawcurcra15/Examples
+cd /home/sbl/budden2015treeome/scripts/data_integration
 
-echo Setting up makefile | tee -a $log
+# Back up published results
+cp -ar ../../results ../../results_as_published
 
-echo Giving rwx permissions to everything | tee -a $log
-sudo chmod -R 777 /home/sbl/gawcurcra15/Examples
+# Delete all results from output folder
+rm -f ../../results/*/*/*
 
-echo Setting the default graphics toolkit for Octave to gnuplot
-printf "graphics_toolkit gnuplot" >> /home/sbl/.octaverc
+# Delete all figures from output folder
+rm -f ../../results/figures/*
 
-echo Executing makefile | tee -a $log
-sleep 2
-./Make 2>&1 | tee -a $log
+# Run all experiments
+Rscript data.integration1.R
+Rscript data.integration2.R
+Rscript data.integration3.R
+Rscript data.integration4.R
+Rscript data.integration5.R
 
-echo Opening PDF output | tee -a $log
-if [ ! -s $DISPLAY ]; then evince paper_notext.pdf
-else echo 'PDF generated at /home/sbl/gawcurcra15/Examples/paper_notext.pdf'
-fi;
-
-echo Completed analysis | tee -a $log
+/bin/sh
