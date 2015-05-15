@@ -1,1 +1,1 @@
-Hierarchical Bond Graph Modelling of Biochemical Networks
+Modelling the conditional regulatory activity of methylated and bivalent promoters

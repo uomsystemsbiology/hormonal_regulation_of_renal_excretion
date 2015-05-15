@@ -1,4 +1,4 @@
-log=/vagrant/temp/install_gawcurcra15.log
+log=/vagrant/temp/install_budden2015treeome.log
 
 echo Setting up desktop components | tee -a $log
 echo Setting up wallpaper | tee -a $log
