@@ -18,7 +18,7 @@ is_docker  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))
 # Provider details
 config.vm.provider "virtualbox" do |vb,override|
 	vb.gui = true
-	override.vm.box = "uomsystemsbiology/base-vbox"
+	override.vm.box = "uomsystemsbiology/base64-vbox"
 end
 
 config.vm.provider "docker" do |docker,override|	
@@ -53,7 +53,7 @@ end
 		config.vm.provision "shell", path: "scripts/build_desktop.sh", privileged: false
 	end	
 	
-	config.vm.provision "shell", path: "scripts/install_budden2015treeome_required_packages.sh", privileged: false
+	config.vm.provision "shell", path: "scripts/install_rgm_kidney_required_packages.sh", privileged: false
 
 # Uncomment the lines below to make an ISO using remastersys and the remastersys.conf file	
 #	if !(is_docker)

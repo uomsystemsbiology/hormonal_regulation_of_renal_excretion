@@ -1,2 +1,1 @@
-Melbourne Systems Biology Laboratory
 Reference Computation Environment

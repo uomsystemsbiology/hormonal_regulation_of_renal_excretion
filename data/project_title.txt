@@ -1,2 +1,3 @@
-Modelling the conditional regulatory activity of methylated
-and bivalent promoters
+Hormonal regulation of salt and water excretion: 
+a mathematical model of whole-kidney function 
+and pressure-natriuresis.

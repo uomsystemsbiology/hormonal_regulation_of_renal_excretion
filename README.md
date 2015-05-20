@@ -1,17 +1,16 @@
 ### What is this? 
-Vagrant development environment for the manuscript 'Modelling the conditional regulatory activity of
-methylated and bivalent promoters'
-[Here is the project page](http://uomsystemsbiology.github.io/budden2015treeome/)
+It's a test Vagrant development environment for the manuscript 'Hormonal regulation of salt and water excretion: a mathematical model of whole-kidney function and pressure-natriuresis'
+Moss R & Thomas SR. Am J Physiol Renal Physiol, 2013. DOI: 10.1152/ajprenal.00089.2013
 
 ### Where is the publication?
-[Here is the arXiv link](http://arxiv.org/abs/1502.01409)
+
 
 ### How do I see the results and work with the code?
 First install [Vagrant](http://www.vagrantup.com) and [VirtualBox](https://www.virtualbox.org/), then do:
 
 ```
-$ git clone https://github.com/uomsystemsbiology/budden2015treeome.git
-$ cd budden2015treeome
+$ git clone https://github.com/uomsystemsbiology/rgm_kidney_vagrant.git
+$ cd rgm_kidney_vagrant
 $ vagrant up
 ```
-This will get the code for this project and build a virtual environment with scripts you can run to reproduce the computations and figures in the publication.
+This will get the code for this project and build a virtual environment.
