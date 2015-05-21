@@ -10,8 +10,8 @@ sudo cp /vagrant/data/splash.png /etc/remastersys/isolinux/splash.png
 sudo remastersys clean
 
 sudo remastersys backup
-cp /mnt/temp/remastersys/remastersys/*.iso /vagrant/iso/
-cp /mnt/temp/remastersys/remastersys/*.log /vagrant/iso/
+cp /mnt/temp/remastersys/remastersys/*.iso /vagrant/output/
+cp /mnt/temp/remastersys/remastersys/*.log /vagrant/output/
 sudo remastersys clean
 
 echo Remastersys completed | tee -a $log
