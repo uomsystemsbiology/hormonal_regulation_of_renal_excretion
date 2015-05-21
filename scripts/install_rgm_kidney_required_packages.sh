@@ -23,31 +23,22 @@ sudo apt-get install -y mercurial
 echo Installing R | tee -a $log
 sudo apt-get -y install r-base r-base-dev evince libcairo2-dev libxt-dev
 
-#echo Installing base OCaml system | tee -a $log
-#sudo apt-get -y install ocaml ocaml-compiler-libs ocaml-findlib ocaml-native-compilers camlp4
+echo Giving everyone all permissions to /usr/local/lib | tee -a $log
+#This is a copout to get compilation working
+sudo chmod -R 777 /usr/local/lib
 
-#echo Installing OCaml libraries | tee -a $log
-#sudo apt-get -y install libatdgen-ocaml-dev libbatteries-ocaml-dev libfindlib-ocaml-dev libounit-ocaml-dev cppo
-
-#echo Installing linear algebra libraries | tee -a $log
-#sudo apt-get -y install liblapack-dev libblas-dev libatlas-dev
-
-#echo Installing Cairo library building packages | tee -a $log
-#sudo apt-get -y install littler libcairo2-dev libxt-dev
+echo Installing R packages | tee -a $log
+Rscript /vagrant/temp/data/install_packages.R
 
 echo Installing Darcs | tee -a $log
 #Installing it quietly to prevent difficult questions about
 #postfix setup so I hope this works
 sudo apt-get install -qq -y darcs
 
-echo Giving everyone all permissions to /usr/local/lib | tee -a $log
-#This is a copout to get compilation working
-sudo chmod -R 777 /usr/local/lib
-
 echo Installing opam | tee -a $log
-sudo apt-get install opam
-opam init
-opam install lacaml batteries atdgen ounit 
+sudo apt-get -y install opam
+opam init -y
+opam install -y lacaml batteries atdgen ounit 
 eval `opam config env`
 
 echo Installing and setting up the SIunits library | tee -a $log
@@ -59,9 +50,6 @@ cd SIunits
 make install
 
 sudo apt-get -y autoremove
-
-echo Installing R packages | tee -a $log
-Rscript /vagrant/temp/data/install_packages.R
 
 echo Completed package installation | tee -a $log
 

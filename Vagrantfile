@@ -45,16 +45,17 @@ end
 	config.ssh.insert_key = false
 	
 #Provisioning scripts
+
 	config.vm.provision "shell", inline: "sudo mkdir /vagrant/temp -p;chmod 777 /vagrant/temp"
 	config.vm.provision "file", source: "data", destination: "/vagrant/temp"
+
+	config.vm.provision "shell", path: "scripts/install_rgm_kidney_required_packages.sh", privileged: false
 	
 	config.vm.provision "shell", path: "scripts/build_nodesktop.sh", privileged: false	
 	if !(is_docker)
 		config.vm.provision "shell", path: "scripts/build_desktop.sh", privileged: false
 	end	
 	
-	config.vm.provision "shell", path: "scripts/install_rgm_kidney_required_packages.sh", privileged: false
-
 # Uncomment the lines below to make an ISO using remastersys and the remastersys.conf file	
 #	if !(is_docker)
 #	config.vm.provision "shell", path: "scripts/make_iso.sh", privileged: false

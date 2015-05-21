@@ -1,4 +1,3 @@
-The default user is 'sbl' password 'sbl'
 
 Here we should put some instructions about what we want
 people to do with the environment, and also the reference:
