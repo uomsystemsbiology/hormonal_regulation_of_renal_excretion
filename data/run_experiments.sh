@@ -1,22 +1,16 @@
 #!/bin/sh
 
-# Change to project directory
-cd /home/sbl/budden2015treeome/scripts/data_integration
+# Copy in the solutions JSON file for testModel
+# This is a workaround until we have recomputed solutions
+cp /vagrant/temp/data/solutions.json /home/sbl/kidney_2013-10-09/models/testModel/solutions.json
 
-# Back up published results
-cp -ar ../../results ../../results_as_published
+# Make the binaries and scripts executable
+chmod u+x kidney_2013-10-09/bin/*.* kidney_2013-10-09/figures/*.R
 
-# Delete all results from output folder
-rm -f ../../results/*/*/*
+# Execute the test model
+./kidney_2013-10-09/bin/run_model.sh kidney_2013-10-09/models/testModel.json
 
-# Delete all figures from output folder
-rm -f ../../results/figures/*
-
-# Run all experiments
-Rscript data.integration1.R
-Rscript data.integration2.R
-Rscript data.integration3.R
-Rscript data.integration4.R
-Rscript data.integration5.R
+# Open an output PDF to verify things worked
+evince kidney_2013-10-09/models/testModel/output.pdf
 
 /bin/sh
