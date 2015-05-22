@@ -10,7 +10,7 @@ options(repos = c(CRAN = "http://cran.rstudio.com"))
 #if not
 #check for CRAN packages
 currentInstalledPackages = installed.packages(priority=NULL)[,'Package']
-requiredCRANPackages = c("Cairo","gridExtra","ggplot2")
+requiredCRANPackages = c("Cairo","gridExtra")
 missingCRANPackages = setdiff(requiredCRANPackages,currentInstalledPackages)
 if (length(missingCRANPackages)==0){
   message("All required CRAN packages are installed")

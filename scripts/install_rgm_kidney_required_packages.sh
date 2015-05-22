@@ -21,7 +21,7 @@ echo Installing Mercurial which should really be in the base | tee -a $log
 sudo apt-get install -y mercurial
 
 echo Installing R | tee -a $log
-sudo apt-get -y install r-base r-base-dev evince libcairo2-dev libxt-dev
+sudo apt-get -y install r-base r-base-dev evince libcairo2-dev libxt-dev r-cran-ggplot2
 
 echo Giving everyone all permissions to /usr/local/lib | tee -a $log
 #This is a copout to get compilation working
@@ -33,7 +33,7 @@ Rscript /vagrant/temp/data/install_packages.R
 echo Installing Darcs | tee -a $log
 #Installing it quietly to prevent difficult questions about
 #postfix setup so I hope this works
-sudo apt-get install -qq -y darcs
+sudo apt-get install -qq -y --no-install-recommends darcs
 
 echo Installing opam | tee -a $log
 sudo apt-get -y install opam
