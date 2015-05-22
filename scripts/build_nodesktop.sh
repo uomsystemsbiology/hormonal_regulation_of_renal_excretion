@@ -6,6 +6,11 @@ darcs get http://hub.darcs.net/rgm/kidney_2013-10-09
 cd kidney_2013-10-09
 make
 
+echo Copy in the solutions JSON file for testModel
+# This is a workaround until we have recomputed solutions
+cp /vagrant/temp/data/solutions.json /home/sbl/kidney_2013-10-09/models/testModel/solutions.json
+
+
 echo Getting build info | tee -a $log
 echo This part is commented out until I figure out how to do it with darcs | tee -a $log
 #git --git-dir ~/budden2015treeome/.git log --max-count=1 --format=format:"Last Commit: %h%nAuthor: %an%nCommit Date: %ad%n" > /vagrant/temp/build_info.txt
