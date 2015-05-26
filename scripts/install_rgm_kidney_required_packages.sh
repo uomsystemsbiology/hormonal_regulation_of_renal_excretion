@@ -53,9 +53,5 @@ sudo apt-get -y autoremove
 
 echo Completed package installation | tee -a $log
 
-cd ~/
-darcs get http://hub.darcs.net/rgm/kidney_2013-10-09
-cd kidney_2013-10-09
-make
 
 
