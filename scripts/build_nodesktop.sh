@@ -15,7 +15,9 @@ make
 echo Getting build info | tee -a $log
 echo This part is commented out until I figure out how to do it with darcs | tee -a $log
 #git --git-dir ~/budden2015treeome/.git log --max-count=1 --format=format:"Last Commit: %h%nAuthor: %an%nCommit Date: %ad%n" > /vagrant/temp/build_info.txt
-printf '\nEnvironment built at ' > /vagrant/temp/build_info.txt
+printf 'Last commit:\n' > /vagrant/temp/build_info.txt
+darcs log --last 1  >> /vagrant/temp/build_info.txt
+printf '\nEnvironment built at ' >> /vagrant/temp/build_info.txt
 date >> /vagrant/temp/build_info.txt
 
 #echo Copying shell script to home directory | tee -a $log

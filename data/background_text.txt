@@ -1,6 +1,7 @@
+The default user is 'sbl' password 'sbl'
 
-Here we should put some instructions about what we want
-people to do with the environment, and also the reference:
+Double-click the icon 'run_pressure_natriuresis.sh' and select 
+'Execute in Terminal' to reproduce the results of the paper. 
 
 Moss R & Thomas SR. Am J Physiol Renal Physiol, 2014. 
 DOI: 10.1152/ajprenal.00089.2013
