@@ -1,33 +1,37 @@
 #!/bin/sh
 #
-# Regenerate the pressure-natriuresis curves from the manuscript (Figure 12).
+# Regenerate Figure 12 from the manuscript.
 #
 
 DIR=${HOME}/kidney_2013-10-09
-OUT=${HOME}/Desktop/pressure-natriuresis.pdf
+PDF=${HOME}/Desktop/pressure-natriuresis.pdf
 
-echo Make the binaries and scripts executable
+echo Ensure scripts are executable
 chmod u+x ${DIR}/bin/*.* ${DIR}/figures/*.R
 
-SSV=""
 MDIR1=${DIR}/models/hormones_tgf
 MDIR2=${DIR}/models/hormones_pct
+OUT_DATA=""
 
 for LVL in 000 050 100; do
-    echo Execute the model with hormone levels at $(expr ${LVL} '*' 1)%
-
     for MDIR in ${MDIR1} ${MDIR2}; do
         BASENAME=${MDIR}/adh${LVL}_ald${LVL}_ang${LVL}
         MODEL=${BASENAME}.json
-        SSV="${SSV} ${BASENAME}/output.ssv"
-        if [ ! -r ${BASENAME}/output.ssv ]; then
+        MODEL_OUT=${BASENAME}/output.ssv
+        OUT_DATA="${OUT_DATA} ${MODEL_OUT}"
+        # Ensure that the solution file is not modified (e.g., by killing
+        # a previous simulation before it could complete).
+        MODEL_SOLN=${BASENAME}/solutions.json
+        if (cd ${DIR} && darcs wh ${MODEL_SOLN} > /dev/null); then
+            (cd ${DIR} && darcs revert -a ${MODEL_SOLN})
+            rm -f ${MODEL_OUT}
+        fi
+        if [ ! -r ${MODEL_OUT} ]; then
+            echo Run the ${BASENAME} simulation
             ${DIR}/bin/run_model.sh -q ${MODEL}
         fi
     done
 done
 
-echo Plot the pressure-natriuresis curves
-${DIR}/figures/hormone_excr.R ${SSV} ${OUT}
-
-echo Open the output PDF
-exec evince ${OUT}
+echo Create and open Figure 12
+${DIR}/figures/hormone_excr.R ${OUT_DATA} ${PDF} && exec evince ${PDF}
