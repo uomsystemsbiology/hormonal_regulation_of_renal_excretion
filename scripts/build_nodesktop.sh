@@ -2,6 +2,14 @@ log=/vagrant/temp/install_rgm_kidney.log
 
 echo Getting code from the darcs repository and building it | tee -a $log
 cd ~/
+KIDNEY_REPO="/home/sbl/kidney_2013-10-09"
+if [ -d ${KIDNEY_REPO} ]; then
+    # If the directory already exists, delete it. It may be an incomplete copy
+    # (e.g., interrupted or unsuccessful download) and, if so, it will cause
+    # the newly-downloaded repository to be located in a different directory
+    # (most likely /home/sbl/kidney_2013-10-09_0).
+    rm -rf ${KIDNEY_REPO}
+fi
 darcs get --tag '1\.0-2013-1\+ajprenal' http://hub.darcs.net/rgm/kidney_2013-10-09
 cd kidney_2013-10-09
 eval `opam config env`
