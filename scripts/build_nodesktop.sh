@@ -28,9 +28,8 @@ darcs log --last 1 | awk '{print $1,$2,$3,$4,$5,$6}' >> /vagrant/temp/build_info
 printf '\nEnvironment built at ' >> /vagrant/temp/build_info.txt
 date >> /vagrant/temp/build_info.txt
 
-#echo Copying shell script to home directory | tee -a $log
-sudo cp /vagrant/temp/data/run_pressure_natriuresis.sh /home/sbl/run_pressure_natriuresis.sh
-sudo chmod 777 /home/sbl/run_pressure_natriuresis.sh
-
-#echo Linking the shell script into the root folder | tee -a $log
-sudo ln -sv /home/sbl/run_pressure_natriuresis.sh /run_pressure_natriuresis.sh
+# Copy the simulation scripts to a folder on the Desktop
+DEST_DIR=/home/sbl/Desktop/run
+sudo mkdir ${DEST_DIR}
+sudo cp /vagrant/temp/data/make_Figure*.sh ${DEST_DIR}
+sudo chmod 777 ${DEST_DIR}/*.sh

@@ -22,9 +22,8 @@ WALLPAPERPATH=/usr/share/lubuntu/wallpapers/sbl_reference_environment_rgm_kidney
 sudo sed -i "s#\(wallpaper *= *\).*#\1$WALLPAPERPATH#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 sudo sed -i "s#\(wallpaper_mode *= *\).*#\1center#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 
-echo Creating link from shell script on desktop| tee -a $log
-ln -sv /home/sbl/run_pressure_natriuresis.sh /home/sbl/Desktop/run_pressure_natriuresis.sh
-printf "[run_pressure_natriuresis.sh]\nx=10\ny=500\n" >> /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
+echo Setting the position of the run folder on the desktop | tee -a $log
+printf "[run]\nx=10\ny=500\n" >> /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 
 echo Removing Trash icon from the desktop
 sudo sed -i "s#\(show_trash *= *\).*#\10#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf

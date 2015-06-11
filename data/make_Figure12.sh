@@ -4,7 +4,7 @@
 #
 
 DIR=${HOME}/kidney_2013-10-09
-PDF=${HOME}/Desktop/pressure-natriuresis.pdf
+PDF=${HOME}/Desktop/Figure12.pdf
 
 echo Ensure scripts are executable
 chmod u+x ${DIR}/bin/*.* ${DIR}/figures/*.R
