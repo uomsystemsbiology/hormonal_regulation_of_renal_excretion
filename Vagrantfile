@@ -57,8 +57,8 @@ end
 	end	
 	
 # Uncomment the lines below to make an ISO using remastersys and the remastersys.conf file	
-#	if !(is_docker)
-#	config.vm.provision "shell", path: "scripts/make_iso.sh", privileged: false
-#	end
+	if !(is_docker)
+	config.vm.provision "shell", path: "scripts/make_iso.sh", privileged: false
+	end
 
 end

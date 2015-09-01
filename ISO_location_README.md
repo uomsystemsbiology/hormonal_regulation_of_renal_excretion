@@ -6,14 +6,13 @@ To find other versions of this reference environment, see Other Links below.  To
 
 ### Instructions for use
 
-This version of the reference environment is a virtual machine managed by [Vagrant](http://www.vagrantup.com).  To use it, install [Vagrant](http://www.vagrantup.com) and [VirtualBox](https://www.virtualbox.org/), then do:
+This version of the reference environment is a live image as a bootable read-only ISO.  To use it:
 
-```
-$ git clone https://github.com/uomsystemsbiology/hormonal_regulation_of_renal_excretion.git
-$ cd project_name
-$ vagrant up
-$ vagrant reload
-```
+- Install a virtualization tool like [VirtualBox](https://www.virtualbox.org/), then 
+- Create a new virtual machine in the virtualization tool with a virtual CD/DVD-ROM drive
+- Mount the ISO in the drive
+- Boot the machine.  
+
 This will start a virtual machine with scripts to run which reproduce results described in the manuscript.  
 
 ### Other links
@@ -22,5 +21,5 @@ This will start a virtual machine with scripts to run which reproduce results de
 
 [Project page link](http://robmoss.github.io/model/rfc/)
 
-[Bootable ISO](https://dx.doi.org/10.5281/zenodo.30035)
+[Vagrant-managed virtual machine](https://github.com/uomsystemsbiology/hormonal_regulation_of_renal_excretion)
 
